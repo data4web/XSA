@@ -1,21 +1,21 @@
 ---
 applications:
 
-- name: myapp1-web
-  port: <port>
+- name: i831372-myapp1-web
+  port: 64031
   memory: 100M
   path: web
   env:
     destinations: >
       [
-        {"name":"xsjs", "url":"https://<hana_server>:<port_xs>", "forwardAuthToken": true}
+        {"name":"xsjs", "url":"https://brslehana01.sle.sap.corp:64032", "forwardAuthToken": true}
       ]
   services:
-    - my-uaa
+    - i831372-uaa
 
-- name: myapp1-xsjs
-  port: <port_xsjs>
+- name: i831372-myapp1-xsjs
+  port: 64032
   path: xsjs
   memory: 128M
   services:
-    - my-uaa
+    - i831372-uaa
